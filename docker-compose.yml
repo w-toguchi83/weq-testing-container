@@ -1,0 +1,13 @@
+version: '3'
+services:
+  weqdb1:
+    build: ./docker-files/mysql1
+  weqdb2:
+    build: ./docker-files/mysql2
+  weq:
+    build: ./docker-files/weq
+    depends_on:
+      - weqdb1
+      - weqdb2
+    ports:
+      - "4000:4000"
